@@ -1,0 +1,213 @@
+/* components/Hero.css */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(91, 91, 255, 0.15) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 212, 180, 0.1) 0%, transparent 70%);
+  bottom: 0;
+  left: 20%;
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(200, 241, 53, 0.08);
+  border: 1px solid rgba(200, 241, 53, 0.2);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  color: var(--lime);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.8rem;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--lime);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 .line-accent {
+  color: var(--lime);
+}
+
+.hero h1 .line-electric {
+  color: var(--electric);
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-avatar-wrap {
+  position: relative;
+  width: 380px;
+  height: 380px;
+}
+
+.hero-avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  border: 1.5px solid rgba(200, 241, 53, 0.25);
+  animation: morph 8s ease-in-out infinite;
+}
+
+.hero-avatar-ring2 {
+  position: absolute;
+  inset: -20px;
+  border-radius: 55% 45% 40% 60% / 45% 55% 50% 50%;
+  border: 1px solid rgba(91, 91, 255, 0.15);
+  animation: morph 12s ease-in-out infinite reverse;
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%; }
+  33% {
+      border-radius: 55% 45% 35% 65% / 40% 60% 40% 60%;
+  }
+
+  66% {
+      border-radius: 35% 65% 60% 40% / 55% 35% 65% 45%;
+  }
+  }
+
+  .hero-avatar-inner {
+      position: absolute;
+      inset: 20px;
+      background: linear-gradient(135deg, var(--ink3) 0%, var(--ink2) 100%);
+      border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+      animation: morph 8s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+  }
+
+  .initials-text {
+      font-family: 'Syne', sans-serif;
+  font-size: 5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, var(--lime) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.floating-badge {
+  position: absolute;
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.badge-top {
+  top: 10px;
+  right: -20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.badge-bottom {
+  bottom: 20px;
+  left: -30px;
+  animation: float 4s ease-in-out infinite 2s;
+}
+
+.badge-mid {
+  top: 45%;
+  right: -40px;
+  animation: float 4s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+  }
+}
