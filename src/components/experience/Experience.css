@@ -1,0 +1,84 @@
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 120px 1px 1fr;
+  gap: 0 2rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+.exp-year {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  padding-top: 0.1rem;
+  text-align: right;
+}
+
+.exp-line {
+  background: var(--border);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.exp-dot {
+  position: absolute;
+  top: 0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+}
+
+.exp-dot-lime {
+  background: var(--lime);
+  box-shadow: 0 0 12px rgba(200, 241, 53, 0.5);
+}
+
+.exp-dot-electric {
+  background: var(--electric);
+  box-shadow: 0 0 12px rgba(91, 91, 255, 0.5);
+}
+
+.exp-dot-coral {
+  background: var(--coral);
+  box-shadow: 0 0 12px rgba(255, 107, 107, 0.5);
+}
+
+.exp-dot-teal {
+  background: var(--teal);
+  box-shadow: 0 0 12px rgba(0, 212, 180, 0.5);
+}
+
+.exp-role {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.02em;
+}
+
+.exp-company {
+  font-size: 0.85rem;
+  color: var(--lime);
+  font-weight: 400;
+  margin-bottom: 0.7rem;
+}
+
+.exp-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+  font-weight: 300;
+}
