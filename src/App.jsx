@@ -6,6 +6,7 @@ import About from './components/about/About';
 import Projects from './components/projects/Projects';
 import Experience from './components/experience/Experience';
 import './App.css'
+import Tools from './components/tool/Tools';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <About />
       <Projects />
       <Experience />
+      <Tools />
       <div className="noise-overlay"></div>
     </div>
   )
