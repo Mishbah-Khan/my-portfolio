@@ -1,4 +1,3 @@
-// components/Experience.jsx
 import React, { useEffect, useRef } from 'react';
 import './Experience.css';
 
