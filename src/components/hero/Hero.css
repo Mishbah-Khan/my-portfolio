@@ -123,33 +123,36 @@
 
 @keyframes morph {
   0%, 100% { border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%; }
-  33% {
-      border-radius: 55% 45% 35% 65% / 40% 60% 40% 60%;
-  }
+  33% { border-radius: 55% 45% 35% 65% / 40% 60% 40% 60%; }
+  66% { border-radius: 35% 65% 60% 40% / 55% 35% 65% 45%; }
+}
 
-  66% {
-      border-radius: 35% 65% 60% 40% / 55% 35% 65% 45%;
-  }
-  }
+.hero-avatar-inner {
+  position: absolute;
+  inset: 20px;
+  background: linear-gradient(135deg, var(--ink3) 0%, var(--ink2) 100%);
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  animation: morph 8s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-  .hero-avatar-inner {
-      position: absolute;
-      inset: 20px;
-      background: linear-gradient(135deg, var(--ink3) 0%, var(--ink2) 100%);
-      border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
-      animation: morph 8s ease-in-out infinite;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 5rem;
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-  }
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: transform 0.3s ease;
+}
 
-  .initials-text {
-      font-family: 'Syne', sans-serif;
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+.initials-text {
+  font-family: 'Syne', sans-serif;
   font-size: 5rem;
   font-weight: 800;
   background: linear-gradient(135deg, #fff 0%, var(--lime) 100%);
@@ -171,6 +174,7 @@
   gap: 0.4rem;
   backdrop-filter: blur(10px);
   white-space: nowrap;
+  z-index: 10;
 }
 
 .badge-dot {
@@ -202,11 +206,61 @@
   50% { transform: translateY(-8px); }
 }
 
+/* Responsive Design */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 7rem;
+    gap: 2rem;
+  }
+  
+  .hero-visual {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    gap: 2rem;
+    padding-top: 6rem;
+  }
+  
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
 @media (max-width: 480px) {
   .hero h1 {
     font-size: clamp(1.8rem, 8vw, 2.6rem);
+    line-height: 1.1;
   }
+  
   .hero-desc {
     font-size: 0.95rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Ultra small devices */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .line-electric {
+    font-size: 0.85em;
   }
 }

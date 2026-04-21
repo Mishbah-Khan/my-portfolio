@@ -22,26 +22,24 @@ const Hero = () => {
           <a href="#contact" className="btn-outline">Let's talk</a>
         </div>
       </div>
-          <div className="hero-visual">
-              <div className="hero-avatar-wrap">
-                  <div className="hero-avatar-ring"></div>
-                  <div className="hero-avatar-ring2"></div>
-                  <div className="hero-avatar-inner">
-                      <div class="hero-avatar-inner">
-                          <span class="initials-text"><img src="M.Khan.jpg" alt="" srcset="" width="100%" /></span>
-                      </div>
-                  </div>
-                  <div className="floating-badge badge-top">
-                      <span className="badge-dot" style={{ background: 'var(--lime)' }}></span> React & Node.js
-                  </div>
-                  <div className="floating-badge badge-mid">
-                      <span className="badge-dot" style={{ background: 'var(--electric)' }}></span> 50+ Projects
-                  </div>
-                  <div className="floating-badge badge-bottom">
-                      <span className="badge-dot" style={{ background: 'var(--coral)' }}></span> TypeScript
-                  </div>
-              </div>
+      <div className="hero-visual">
+        <div className="hero-avatar-wrap">
+          <div className="hero-avatar-ring"></div>
+          <div className="hero-avatar-ring2"></div>
+          <div className="hero-avatar-inner">
+            <img src="M.Khan.jpg" alt="Mishbah Khan" className="hero-image" />
           </div>
+          <div className="floating-badge badge-top">
+            <span className="badge-dot" style={{ background: 'var(--lime)' }}></span> React & Node.js
+          </div>
+          <div className="floating-badge badge-mid">
+            <span className="badge-dot" style={{ background: 'var(--electric)' }}></span> 50+ Projects
+          </div>
+          <div className="floating-badge badge-bottom">
+            <span className="badge-dot" style={{ background: 'var(--coral)' }}></span> TypeScript
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
