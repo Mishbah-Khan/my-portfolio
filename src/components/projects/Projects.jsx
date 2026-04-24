@@ -4,52 +4,46 @@ import './Projects.css';
 const projects = [
   {
     id: 1,
-    title: 'Flux — Real-time analytics platform',
-    description: 'A high-performance analytics dashboard handling 10M+ events/day with real-time charts, custom funnels, and multi-tenant architecture. Built for a SaaS startup.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
-    tagColors: ['lime', 'electric', 'teal', 'coral'],
+    title: 'NewsPortal - Modern Real-Time News Aggregator',
+    description: 'NewsPortal combines real-time news delivery with stunning visual design, creating an engaging user experience that outperforms traditional news platforms.',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS'],
+    tagColors: ['lime', 'electric', 'coral', 'teal', 'electric'],
     thumbClass: 'project-thumb-p1',
-    thumbText: 'FLUX',
+    thumbText: 'news-portal',
     badge: 'Featured',
     featured: true,
-    links: [{ label: '↗ Live demo', url: '#' }, { label: '⌥ GitHub', url: '#' }]
+    links: [{ label: '↗ Live demo', url: 'https://news-portal-mishbah.vercel.app/' }, { label: '⌥ GitHub', url: 'https://github.com/Mishbah-Khan/news-portal.git' }]
   },
   {
-    id: 2,
-    title: 'Ratelimit-kit',
-    description: 'Zero-dependency rate limiting middleware with Redis-backed sliding window and token bucket algorithms. 2k+ GitHub stars.',
-    tags: ['Node.js', 'REST'],
-    tagColors: ['electric', 'lime'],
-    thumbClass: 'project-thumb-p2',
-    thumbText: 'API',
-    badge: 'OSS',
+    id: 2, // Adjust based on your list order
+    title: 'Popcorn with Mishbah',
+    description: 'A dynamic movie discovery platform built with React that fetches real-time data from the OMDb API. Features include instant search, detailed movie insights, and a personalized watchlist managed via local storage.',
+    tags: ['React', 'API', 'Tailwind'],
+    tagColors: ['lime', 'teal', 'electric'],
+    thumbClass: 'project-thumb-p1', // Ensure this matches your CSS classes
+    thumbText: 'MOVIE',
+    badge: 'WebApp',
     featured: false,
-    links: [{ label: '⌥ GitHub', url: '#' }, { label: '↗ npm', url: '#' }]
+    links: [
+      { label: '⌥ GitHub', url: 'https://github.com/Mishbah-Khan/popcorn.git' },
+      { label: '↗ Live', url: 'https://popcorn-with-mishbah.vercel.app/' }
+    ]
   },
   {
-    id: 3,
-    title: 'CodeReview AI',
-    description: 'Automated PR review tool using LLMs to catch bugs, suggest improvements, and enforce style guides. Integrates with GitHub Actions.',
-    tags: ['Python', 'FastAPI'],
-    tagColors: ['teal', 'coral'],
+    id: 3, // Adjust based on your list order
+    title: 'Travel Packing List',
+    description: 'A logic-driven trip planner that helps users organize essentials. Features include dynamic item tracking, real-time packing statistics (percentage calculation), multi-criteria sorting, and persistent data storage.',
+    tags: ['React', 'State Logic', "CSS"],
+    tagColors: ['lime', 'coral', 'electric'],
     thumbClass: 'project-thumb-p3',
-    thumbText: 'AI',
-    badge: '2024',
+    thumbText: 'TRAVEL',
+    badge: 'Utility',
     featured: false,
-    links: [{ label: '↗ Live demo', url: '#' }]
+    links: [
+      { label: '⌥ GitHub', url: 'https://github.com/Mishbah-Khan/Travel-Packing-List-with-React-Js.git' },
+      { label: '↗ Live', url: 'https://travel-packing-list-mishbah.vercel.app/' }
+    ]
   },
-  {
-    id: 4,
-    title: 'dbsnap',
-    description: 'Blazing-fast CLI for PostgreSQL schema diffing and migration generation. 10x faster than existing tools.',
-    tags: ['Rust', 'CLI'],
-    tagColors: ['coral', 'lime'],
-    thumbClass: 'project-thumb-p4',
-    thumbText: 'DB',
-    badge: 'Tool',
-    featured: false,
-    links: [{ label: '⌥ GitHub', url: '#' }]
-  }
 ];
 
 const Projects = () => {
@@ -94,6 +88,7 @@ const Projects = () => {
               </div>
               <span className="project-thumb-art">{project.thumbText}</span>
               <span className="proj-badge">{project.badge}</span>
+              
             </div>
             <div className="project-info">
               <div className="project-tags">
