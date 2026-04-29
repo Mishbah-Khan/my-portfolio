@@ -97,12 +97,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .hero-avatar-wrap {
   position: relative;
   width: 380px;
   height: 380px;
+  flex-shrink: 0;
 }
 
 .hero-avatar-ring {
@@ -207,16 +209,75 @@
 }
 
 /* Responsive Design */
+/* COMPLETELY REPLACE your responsive CSS section with this */
+
+/* Responsive Design */
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
     padding-top: 7rem;
-    gap: 2rem;
+    gap: 3rem;
+    text-align: center;
+    overflow: visible !important; /* Force visible */
   }
   
+  /* Force the visual container to show */
   .hero-visual {
-    display: none;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .hero-avatar-wrap {
+    width: 260px !important;
+    height: 260px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .hero-avatar-ring {
+    display: block !important;
+  }
+
+  .hero-avatar-inner {
+    position: absolute !important;
+    inset: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important; /* Keep this hidden for the shape */
+    background: linear-gradient(135deg, var(--ink3) 0%, var(--ink2) 100%) !important;
+  }
+  
+  .hero-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Hide the second ring on mobile to avoid issues */
+  .hero-avatar-ring2 {
+    display: none !important;
+  }
+
+  /* Keep floating badges but make them smaller if needed */
+  .floating-badge {
+    transform: scale(0.8);
   }
 }
 
@@ -230,9 +291,68 @@
     font-size: 1rem;
     line-height: 1.7;
   }
+  
+  .hero-avatar-wrap {
+    width: 240px !important;
+    height: 240px !important;
+  }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    overflow: visible !important;
+  }
+  
+  .hero-visual {
+    margin-bottom: 1rem;
+  }
+  
+  .hero-avatar-wrap {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .hero-avatar-inner {
+    inset: 10px !important;
+  }
+  
+  .hero-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  .hero-avatar-ring2 {
+    display: none !important;
+  }
+
+  /* Show floating badges but make them smaller */
+  .floating-badge {
+    display: flex !important;
+    transform: scale(0.7);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  /* Reposition badges for smaller screen */
+  .badge-top {
+    top: -15px;
+    right: -30px;
+  }
+
+  .badge-bottom {
+    bottom: 10px;
+    left: -35px;
+  }
+
+  .badge-mid {
+    top: 40%;
+    right: -35px;
+  }
+
   .hero h1 {
     font-size: clamp(1.8rem, 8vw, 2.6rem);
     line-height: 1.1;
@@ -254,13 +374,45 @@
   }
 }
 
-/* Ultra small devices */
-@media (max-width: 360px) {
-  .hero h1 {
-    font-size: 1.8rem;
+/* Even smaller devices */
+@media (max-width: 380px) {
+  .hero-avatar-wrap {
+    width: 200px !important;
+    height: 200px !important;
   }
   
-  .line-electric {
-    font-size: 0.85em;
+  .floating-badge {
+    transform: scale(0.6);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.65rem;
   }
+  
+  .badge-top {
+    top: -20px;
+    right: -40px;
+  }
+  
+  .badge-bottom {
+    bottom: 0px;
+    left: -40px;
+  }
+  
+  .badge-mid {
+    top: 35%;
+    right: -40px;
+  }
+}
+
+/* Extra safety for image visibility */
+.hero-visual,
+.hero-avatar-wrap,
+.hero-avatar-inner,
+.hero-image {
+  position: relative;
+}
+
+.hero-image {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
 }

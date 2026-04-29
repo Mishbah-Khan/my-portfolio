@@ -1,6 +1,9 @@
 import './Hero.css';
+import { useState } from 'react';
 
 const Hero = () => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section className="hero" id="home">
       <div>
@@ -27,7 +30,19 @@ const Hero = () => {
           <div className="hero-avatar-ring"></div>
           <div className="hero-avatar-ring2"></div>
           <div className="hero-avatar-inner">
-            <img src="M.Khan.jpg" alt="Mishbah Khan" className="hero-image" />
+            {!imageError ? (
+              <img 
+                src="/M.Khan.jpg" 
+                alt="Mishbah Khan" 
+                className="hero-image"
+                onError={(e) => {
+                  console.error('Image failed to load:', e.target.src);
+                  setImageError(true);
+                }}
+              />
+            ) : (
+              <div className="initials-text">MK</div>
+            )}
           </div>
           <div className="floating-badge badge-top">
             <span className="badge-dot" style={{ background: 'var(--lime)' }}></span> React & Node.js
